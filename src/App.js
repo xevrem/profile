@@ -7,8 +7,9 @@ const Navbar = (props) => {
   <div className="navbar">
     <ul className="nav">
       <li id="name"><p>Erika Jonell</p></li>
-      <li><a href="#projects" target="_self">Projects</a></li>
-      <li><a href="#contact" target="_self">Contact</a></li>
+      <li><a href="#about-container" target="_self">About</a></li>
+      <li><a href="#project-container" target="_self">Projects</a></li>
+      <li><a href="#contact-container" target="_self">Contact</a></li>
     </ul>
     </div>
   );
@@ -104,7 +105,7 @@ class App extends Component {
           <a href="#about" name="about"></a>
           <About/>
 
-          <a href="#projects" name="projects"></a>
+          {/* <a href="#projects" name="projects"></a> */}
           <Projects/>
         
           <a href="#contact" name="contact"></a>

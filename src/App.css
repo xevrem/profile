@@ -13,9 +13,12 @@ div.navbar{
   background-color: #4A5283;
   width: 100%;
   display: inline-block;
+  border-radius: 5px;
   padding: 0px;
   margin-bottom: 5px 0 5px 0;
-  border-radius: 5px;
+  /* position: fixed; */
+  top: 0px;
+  left: 0px;
 }
 
 ul.nav{
