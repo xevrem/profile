@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import project_data from './projects.json';
 
 const Navbar = (props) => {
   return (
-  <div className="navbar">
-    <ul className="nav">
-      <li id="name"><p>Erika Jonell</p></li>
-      <li><a href="#about-container" target="_self">About</a></li>
-      <li><a href="#project-container" target="_self">Projects</a></li>
-      <li><a href="#contact-container" target="_self">Contact</a></li>
-    </ul>
+    <div className="navbar">
+      <ul className="nav">
+        <li id="name"><p>Erika Jonell</p></li>
+        <li><a href="#about-container" target="_self">About</a></li>
+        <li><a href="#project-container" target="_self">Projects</a></li>
+        <li><a href="#contact-container" target="_self">Contact</a></li>
+      </ul>
     </div>
   );
 }
 
 const About = (props) =>{
   return (
-    <div className="section" id="about-container">
+    <div id="about-container">
       <div className="header">
         <h2>Erika Jonell</h2>
       </div>
@@ -54,28 +55,18 @@ const Project = (props) =>{
 
 
 const Projects = (props) => {
+
+  let project_list = props.projects.map( (proj, i) => {
+    return <Project key={i} link={proj.link} img={proj.img} name={proj.name} text={proj.text} />
+  });
+
   return (
-    <div className="section" id="project-container">
+    <div id="project-container">
       <div className="header">
         <h2>Past Projects</h2>
       </div>
       <div className="grid-container">
-        <Project link="https://codepen.io/xevrem/full/jLvjEQ/" img='./images/simon.jpg' name='Simon'
-        text='The game of Simon, written in Vue'/>
-        <Project link="https://xevrem.github.io/dungeoneer/" img='./images/dungeoneer.jpg' name='Dungeoneer'
-        text='A roguelike written with React and ROT.js'/>
-        <Project link="https://codepen.io/xevrem/full/vJbqRO/" img='./images/life.jpg' name='Game of Life'
-        text='The Game of Life, written in React'/>
-        <Project link="https://xevrem.github.io/heatmap/" img='./images/heatmap.jpg' name='Global Temperature Heatmap'
-        text='A graphical heatmap written in Vue and D3.js'/>
-        <Project link="https://xevrem.github.io/forcegraph/" img='./images/forcegraph.jpg' name='State Contiguity Force Graph'
-        text='A forcegraph written in Vue and D3.js'/>
-        <Project link="https://xevrem.github.io/meteors/" img='./images/meteors.jpg' name='Historical Recorded Meteor Landings'
-        text='A geomapping project written in Vue and D3.js'/>
-        <Project link="https://codepen.io/xevrem/full/ayEzgV/" img='./images/twitch.jpg' name='Simple Twitch Check'
-        text='A simple Twitch stream status check webpage utilizing my custom twitch-api accessor service'/>
-        <Project link="https://xev-twitch-api.glitch.me" img='./images/twitch_api.jpg' name='Simple Twitch API'
-        text='Custom Twitch status service for Simple Twitch Check'/>
+        {project_list}
       </div>
     </div>
   );
@@ -83,7 +74,7 @@ const Projects = (props) => {
 
 const ContactInfo = (props) => {
   return (
-    <div className="section" id="contact-container">
+    <div id="contact-container">
       <div className="header">
         <h2>Contact Methods</h2>
       </div>
@@ -96,20 +87,39 @@ const ContactInfo = (props) => {
   );
 }
 
+const Section = props => {
+  return(
+    <div className='section' id={props.section_id}>
+      {props.children}
+    </div>
+  );
+}
+
+
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      projects: project_data
+    }
+  }
   render() {
     return (
       <div className="app">
         <Navbar/>
         <div className="content">
-          <a href="#about" name="about"></a>
-          <About/>
 
-          {/* <a href="#projects" name="projects"></a> */}
-          <Projects/>
+          <Section>
+            <About />
+          </Section>
+          
+          <Section>
+            <Projects projects={this.state.projects}/>
+          </Section>
         
-          <a href="#contact" name="contact"></a>
-          <ContactInfo/>
+          <Section>
+            <ContactInfo />
+          </Section>
 
         </div>    
       </div>
