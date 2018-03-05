@@ -30,8 +30,36 @@ const About = (props) =>{
         </div>
         <div className="about-text">
           <span>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-             irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>
+              <u>Operating Systems</u>: Windows, MacOS, and Linux
+            </p>
+            <p>
+              <u>Software Languages</u>: Bash, C/C#, Java, JavaScript, Python, and SQL
+            </p>
+            <p>
+              <u>Frameworks & Standards</u>: Standards (e.g., CSS, HTML, JSON, and XML/XSD), JS/Node (e.g., Axios, Express, NPM, React, Vue, Yarn), Python (e.g., Flask, Jinja2, Jupyter, Keras, Matplotlib, Numpy, Scikit-Learn, Tensorflow), and Styling (e.g., Bootstrap, Font Awesome)
+            </p>
+            <p>
+              <u>Databases</u>: MongoDB, MySQL, Oracle, and SQLite
+            </p>
+            <p>
+              <u>Development Tools</u>: Atom, MonoDevelop, NetBeans, Sublime Text, and Visual Studio
+            </p>
+            <p>
+              <u>Lifecycle Management</u>: IBM Rational, Git, and GitHub
+            </p>
+            <p>
+              <u>Architecture</u>: OpenText ProVision and DoD Architecture Framework (DoDAF)
+            </p>
+            <p>
+              <u>Virtualization</u>: QEMU/KVM, VirtualBox, and VMware
+            </p>
+            <p>
+              <u>Graphics Engines/Frameworks</u>: XNA/MonoGame, Unity, and Godot
+            </p>
+            <p>
+              <u>Office Productivity</u>: Google Docs, LibreOffice, Microsoft Office (Word, Excel, Project, Visio, etc.), and Microsoft SharePoint
+            </p>
           </span>
         </div>
       </div>

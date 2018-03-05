@@ -89,9 +89,13 @@ hr.my-hr{
 
 div.about-grid{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr ));
+  /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr )); */
+  grid-template-columns: 1fr 2fr;
+  grid-template-columns: repeat(auto-fit, minmax(1fr, 2fr));
+  /* grid-template: "" */
   grid-gap: 15px;
   justify-content: center;
+  padding: 5px;
 }
 
 div.about-text {
