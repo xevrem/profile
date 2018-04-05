@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import project_data from './projects.json';
+import project_data from './../projects.json';
 
 const Navbar = (props) => {
   return (
@@ -16,7 +16,27 @@ const Navbar = (props) => {
   );
 }
 
+const SKILLS = {
+  'Software Languages': 'C#, Java, JavaScript, Python, and SQL',
+  'Frameworks & Standards': 'Standards (e.g., CSS, HTML, JSON, ServiceWorkers, and XML/XSD), JS/Node (e.g., Axios, Express, NPM/Yarn, React, Vue), Python (e.g., Flask, Jinja2, Jupyter, Keras, Matplotlib, Numpy, Scikit-Learn, Tensorflow), and Styling (e.g., Bootstrap, Font Awesome)',
+  'Databases': 'MongoDB, IndexedDB, and SQLite',
+  'Development Tools': 'Atom, MonoDevelop, and Visual Studio',
+  'Lifecycle Management':'IBM Rational, Git, and GitHub',
+  'Architecture': 'OpenText ProVision and DoD Architecture Framework (DoDAF)',
+  'Virtualization': 'QEMU/KVM, VirtualBox, and VMware',
+  'Graphics Engines/Frameworks': 'XNA/MonoGame, Unity, and Godot'
+}
+
 const About = (props) =>{
+
+  let skill_list = Object.keys(SKILLS).map((key, i)=>{
+    return (
+      <p key={i}>
+        <u>{key}</u>: {SKILLS[key]}
+      </p>
+    )
+  });
+
   return (
     <div id="about-container">
       <div className="header">
@@ -30,36 +50,7 @@ const About = (props) =>{
         </div>
         <div className="about-text">
           <span>
-            <p>
-              <u>Operating Systems</u>: Windows, MacOS, and Linux
-            </p>
-            <p>
-              <u>Software Languages</u>: Bash, C/C#, Java, JavaScript, Python, and SQL
-            </p>
-            <p>
-              <u>Frameworks & Standards</u>: Standards (e.g., CSS, HTML, JSON, and XML/XSD), JS/Node (e.g., Axios, Express, NPM, React, Vue, Yarn), Python (e.g., Flask, Jinja2, Jupyter, Keras, Matplotlib, Numpy, Scikit-Learn, Tensorflow), and Styling (e.g., Bootstrap, Font Awesome)
-            </p>
-            <p>
-              <u>Databases</u>: MongoDB, MySQL, Oracle, and SQLite
-            </p>
-            <p>
-              <u>Development Tools</u>: Atom, MonoDevelop, NetBeans, Sublime Text, and Visual Studio
-            </p>
-            <p>
-              <u>Lifecycle Management</u>: IBM Rational, Git, and GitHub
-            </p>
-            <p>
-              <u>Architecture</u>: OpenText ProVision and DoD Architecture Framework (DoDAF)
-            </p>
-            <p>
-              <u>Virtualization</u>: QEMU/KVM, VirtualBox, and VMware
-            </p>
-            <p>
-              <u>Graphics Engines/Frameworks</u>: XNA/MonoGame, Unity, and Godot
-            </p>
-            <p>
-              <u>Office Productivity</u>: Google Docs, LibreOffice, Microsoft Office (Word, Excel, Project, Visio, etc.), and Microsoft SharePoint
-            </p>
+            {skill_list}
           </span>
         </div>
       </div>
@@ -72,7 +63,7 @@ const Project = (props) =>{
     <div className="grid-item">
       <div className="grid-content">
         <a href={props.link} target="_blank">
-          <img className="grid-img" src={props.img} alt=""/>
+          <img className="grid-img" src={props.img} alt="a picture of the project"/>
         </a>
         <h3>{props.name}</h3>
         <p>{props.text}</p>
@@ -108,7 +99,7 @@ const ContactInfo = (props) => {
       </div>
       <div className="contact-block">
         <a href="#email"><i className="fa fa-envelope-o" aria-hidden="true"></i></a>
-        <a href="#github"><i className="fa fa-github" aria-hidden="true"></i></a>
+        <a href="https://github.com/xevrem"><i className="fa fa-github" aria-hidden="true"></i></a>
         <a href="#twitter"><i className="fa fa-twitter" aria-hidden="true"></i></a>
       </div>
     </div>
@@ -140,16 +131,16 @@ class App extends Component {
           <Section>
             <About />
           </Section>
-          
+
           <Section>
             <Projects projects={this.state.projects}/>
           </Section>
-        
+
           <Section>
             <ContactInfo />
           </Section>
 
-        </div>    
+        </div>
       </div>
     );
   }
