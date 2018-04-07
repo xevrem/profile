@@ -45,13 +45,19 @@
     "link":"https://codepen.io/xevrem/full/ayEzgV/",
     "img":"./images/twitch_sm.jpg",
     "name":"Simple Twitch Check",
-    "text":"A simple Twitch stream status check webpage utilizing my custom twitch-api accessor service"
+    "text":"A simple Twitch stream status check webpage utilizing my custom twitch-api service"
   },
   {
     "link":"https://xev-twitch-api.glitch.me",
     "img":"./images/twitch_api_sm.jpg",
     "name":"Simple Twitch API",
     "text":"Custom Twitch status service for Simple Twitch Check"
+  },
+  {
+    "link":"https://xev-img-search.glitch.me/",
+    "img":"./images/img_search_sm.jpg",
+    "name":"Simple Imgur Search",
+    "text":"A search API for Imgur"
   },
   {
     "link":"https://github.com/xevrem/paws",

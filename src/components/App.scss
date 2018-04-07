@@ -1,8 +1,24 @@
 
+$textcolor: hsl(39, 94%, 92%);
+$textlight: hsl(39, 94%, 92%);
+$textdark: hsl(215, 40%, 25%);
+
+$bgcolor: hsl(256, 40%, 25%);
+// $midcolor: hsl(215, 40%, 25%);
+$midcolor: hsl(39, 15%, 92%);
+$lightcolor: hsl(352, 30%, 50%);
+$hovercolor: hsl(215, 40%, 50%);
+
+$fade1: hsl(256, 15%, 95%);
+$fade2: hsl(215, 15%, 95%);
+$fade3: hsl(352, 15%, 95%);
+
+$fade: linear-gradient(180deg, $fade1, $fade2, $fade3) no-repeat center center fixed;
+
 body{
-  background-color: #242D4E;
-  color: #FEF2DA;
-  font-family: sans-serif;
+  background: $fade;
+  color: $textdark;
+  font-family: 'Cuprum', sans-serif;
 }
 
 .app{
@@ -10,15 +26,14 @@ body{
 }
 
 div.navbar{
-  background-color: #4A5283;
+  background-color: $midcolor;
   width: 100%;
   display: inline-block;
-  border-radius: 5px;
   padding: 0px;
   margin-bottom: 5px 0 5px 0;
-  /* position: fixed; */
   top: 0px;
   left: 0px;
+  box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
 }
 
 ul.nav{
@@ -28,9 +43,14 @@ ul.nav{
   margin: 0;
 }
 
-ul.nav li{
+ul.nav li.left{
   float:left;
-  border-right: 2px solid #242D4E;
+  border-right: 2px solid $textdark;
+}
+
+ul.nav li.right{
+  float:right;
+  border-left: 2px solid $textdark;
 }
 
 
@@ -39,7 +59,7 @@ ul.nav li a{
   font-family: 'Cuprum', sans-serif;
   font-size: 30px;
   font-weight: bold;
-  color: #FEF2DA;
+  color: $textdark;
   display: inline-block;
   text-decoration: none;
 }
@@ -49,28 +69,21 @@ ul.nav li p{
   font-family: 'Cuprum', sans-serif;
   font-size: 30px;
   font-weight: bold;
-  color: #FEF2DA;
+  color: $textdark;
   display: inline-block;
   text-decoration: none;
   margin: 0px;
 }
 
 ul.nav li a:hover{
-  background-color: #283061;
+  background-color: $hovercolor;
 }
 
-
-#about-container{
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: url(http://localhost:3000/images/jumbo.jpg);
-}
 
 div.header h2{
   text-align: center;
   font-size: 2em;
-  margin: 0px 0px 15px 0px;
+  margin: 0px 0px 5px 0px;
   z-index: 2;
 }
 
@@ -84,15 +97,12 @@ hr.my-hr{
   border: 0;
   margin: 15px 0 15px 0;
   height: 5px;
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  background-image: linear-gradient(to right, hsla(215, 40%, 25%, 0), hsla(215, 40%, 25%, 50%), hsla(215, 40%, 25%, 0));
 }
 
 div.about-grid{
   display: grid;
-  /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr )); */
   grid-template-columns: 1fr 2fr;
-  // grid-template-columns: repeat(auto-fit, minmax(1fr, 2fr));
-  /* grid-template: "" */
   grid-gap: 15px;
   justify-content: center;
   padding: 5px;
@@ -104,15 +114,17 @@ div.about-text {
   padding: 0 20px 0 20px;
   height: 100%;
   line-height: 300px;
+
 }
 
 div.about-text span{
   display: inline-block;
   vertical-align: middle;
   line-height: 1.25em;
-  background-color: rgba(137, 94, 140, 0.75);
+  background-color: $lightcolor;
+  color: $textlight;
   padding: 0 1.25em;
-  border-radius: 5px
+  box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
 }
 
 div.about-img{
@@ -121,17 +133,17 @@ div.about-img{
 }
 
 #avatar{
-  border: 5px solid #895E8C;
   border-radius: 50%;
   max-width: 300px;
   max-height: 300px;
+  box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
 }
 
 .section{
-  background-color: #4A5283;
+  background-color: $midcolor;
   margin: 15px 0px 15px 0px;
   padding: 15px;
-  border-radius: 5px;
+  box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
 }
 
 .grid-container{
@@ -142,31 +154,46 @@ div.about-img{
 }
 
 .grid-item{
-  background-color: #895E8C;
-  border-radius: 5px;
+  background-color: $lightcolor;
+  // border-radius: 5px;
+  box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
 }
 
 .grid-content{
   width: 96%;
   margin-left: 2%;
   margin-top: 2%;
+  color: $textlight;
 }
 
 .grid-img{
   width: 100%;
-  /* max-width: 384px; */
-  /* max-height: 288px; */
 }
 
-div.contact-block{
-  text-align: center;
+
+ul.history-list {
+  list-style-type: none;
+  // width: 100%;
+  padding: 0px;
+  margin: 0px;
 }
 
-div.contact-block a{
-  font-size: 3em;
-  color: #FEF2DA;
-  border: 2px solid #FEF2DA;
-  border-radius: 5px;
-  padding: 5px 25px;
-  margin: 5px
+li.history-item {
+  background-color: $lightcolor;
+  color: $textlight;
+  padding: 5px;
+  margin: 10px 0px;
+  box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+}
+
+li.history-item h3{
+  margin: 5px 0px;
+}
+
+li.history-item h4{
+  margin: 5px 0px;
+}
+
+li.history-item p{
+  margin: 5px 0px;
 }
