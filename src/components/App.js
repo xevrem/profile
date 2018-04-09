@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import ReactModal from 'react-modal';
+
 import './App.css';
 
 import project_data from './../projects.json';
 import history_data from './../history.json';
+
+//set AppElement for ReactModal
+ReactModal.setAppElement('#root');
 
 //transition width between full nav and menu icon
 const NAV_MIN_WIDTH = 650;
@@ -15,12 +19,15 @@ class Navbar extends Component{
     this.state = {
       show_menu_modal: false,
       draw_menu: window.innerWidth < NAV_MIN_WIDTH ? true : false,
+      show_mail_modal: false,
     }
 
     //bind methods
     this.update_window_dimensions = this.update_window_dimensions.bind(this);
     this.handle_menu_modal_close = this.handle_menu_modal_close.bind(this);
     this.handle_show_menu_modal = this.handle_show_menu_modal.bind(this);
+    this.handle_show_mail_modal = this.handle_show_mail_modal.bind(this);
+    this.handle_mail_modal_close = this.handle_mail_modal_close.bind(this);
   }
 
   componentDidMount(){
@@ -30,22 +37,38 @@ class Navbar extends Component{
 
   update_window_dimensions(event){
     // console.log('update_window_dimensions called...');
+    let draw_menu = this.state.draw_menu;
     //update depending on state and window sizing
     if(window.innerWidth >= NAV_MIN_WIDTH && this.state.draw_menu){
-      this.setState({draw_menu: false});
+      draw_menu = false;
     }else if(window.innerWidth < NAV_MIN_WIDTH && !this.state.draw_menu){
-      this.setState({draw_menu:true});
+      draw_menu = true;
     }
+
+    this.setState({
+      draw_menu: draw_menu,
+      show_menu_modal: false //if user resizes always close modal
+    })
   }
 
   handle_menu_modal_close(){
-    console.log('handle_menu_modal_close called...')
+    // console.log('handle_menu_modal_close called...')
     this.setState({show_menu_modal:false});
   }
 
   handle_show_menu_modal(){
-    console.log('handle_show_menu_modal called...')
+    // console.log('handle_show_menu_modal called...')
     this.setState({show_menu_modal:true});
+  }
+
+  handle_show_mail_modal(){
+    // console.log('handle_show_mail_modal called...')
+    this.setState({show_mail_modal:true});
+  }
+
+  handle_mail_modal_close(){
+    // console.log('handle_mail_modal_close called...')
+    this.setState({show_mail_modal:false});
   }
 
   render(){
@@ -65,11 +88,21 @@ class Navbar extends Component{
             <ul className="menu-list">
               <a className="menu-list-item" href="#project-container" target="_self" onClick={this.handle_menu_modal_close}><li>Projects</li></a>
               <a className="menu-list-item" href="#history-container" target="_self" onClick={this.handle_menu_modal_close}><li>History</li></a>
-              <a className="menu-list-item" href="#email"><li><i className="fa fa-envelope-o" aria-hidden="true"></i></li></a>
-              <a className="menu-list-item" href="https://github.com/xevrem"><li ><i className="fa fa-github" aria-hidden="true"></i></li></a>
+              <p className="menu-list-item" onClick={this.handle_show_mail_modal}>
+                <li ><i className="fa fa-envelope-o" aria-hidden="true"></i></li>
+              </p>
+              <a className="menu-list-item" href="https://github.com/xevrem"><li><i className="fa fa-github" aria-hidden="true"></i></li></a>
               <a className="menu-list-item" href="https://www.linkedin.com/in/erika-jonell"><li><i className="fa fa-linkedin" aria-hidden="true"></i></li></a>
             </ul>
-          </ReactModal>
+        </ReactModal>
+        <ReactModal
+          className="mail-modal-content section"
+          overlayClassName="mail-modal-overlay"
+          isOpen={this.state.show_mail_modal}
+          onRequestClose={this.handle_mail_modal_close}>
+            <h2>Email</h2>
+            <h3>erika DOT jonell AT gmail DOT com</h3>
+        </ReactModal>
       </div>
     ) : (
       <div className="navbar">
@@ -77,10 +110,20 @@ class Navbar extends Component{
           <li className="left" id="name"><p>Erika Jonell</p></li>
           <li className="left"><a href="#project-container" target="_self">Projects</a></li>
           <li className="left"><a href="#history-container" target="_self">History</a></li>
-          <li className="right"><a href="#email"><i className="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+          <li className="right" onClick={this.handle_show_mail_modal}>
+            <p className="menu"><i className="fa fa-envelope-o" aria-hidden="true"></i></p>
+          </li>
           <li className="right"><a href="https://github.com/xevrem"><i className="fa fa-github" aria-hidden="true"></i></a></li>
           <li className="right"><a href="https://www.linkedin.com/in/erika-jonell"><i className="fa fa-linkedin" aria-hidden="true"></i></a></li>
         </ul>
+        <ReactModal
+          className="mail-modal-content section"
+          overlayClassName="mail-modal-overlay"
+          isOpen={this.state.show_mail_modal}
+          onRequestClose={this.handle_mail_modal_close}>
+            <h2>Email</h2>
+            <h3>erika DOT jonell AT gmail DOT com</h3>
+        </ReactModal>
       </div>
     );
   }
@@ -165,7 +208,7 @@ const History = (props) => {
 
   let history_list = props.history.map((item, i)=>{
     return (
-      <li className='history-item'>
+      <li key={i} className='history-item'>
         <h3><u>{item.title}</u></h3>
         <h4><em>{item.entity} ( {item.dates} )</em></h4>
         <p>{item.description}</p>
