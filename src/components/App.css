@@ -65,12 +65,12 @@ p.menu:hover {
 .menu-list-item {
   margin: 0px;
   padding: 0px;
-  color: #0b3751; }
+  color: #0b3751;
+  text-decoration: none; }
 
 .menu-list-item li {
   font-size: 30px;
   font-weight: bold;
-  text-decoration: none;
   width: 100%;
   margin: 0px;
   padding: 8px 16px 8px 16px; }
