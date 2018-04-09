@@ -1,32 +1,98 @@
 import React, { Component } from 'react';
+import ReactModal from 'react-modal';
 import './App.css';
 
 import project_data from './../projects.json';
 import history_data from './../history.json';
 
-const Navbar = (props) => {
-  return (
-    <div className="navbar">
-      <ul className="nav">
-        <li className="left" id="name"><p>Erika Jonell</p></li>
-        {/* <li className="left"><a href="#about-container" target="_self">About</a></li> */}
-        <li className="left"><a href="#project-container" target="_self">Projects</a></li>
-        <li className="left"><a href="#history-container" target="_self">History</a></li>
-        <li className="right"><a href="#email"><i className="fa fa-envelope-o" aria-hidden="true"></i></a></li>
-        <li className="right"><a href="https://github.com/xevrem"><i className="fa fa-github" aria-hidden="true"></i></a></li>
-        <li className="right"><a href="https://www.linkedin.com/in/erika-jonell"><i className="fa fa-linkedin" aria-hidden="true"></i></a></li>
-      </ul>
-    </div>
-  );
+//transition width between full nav and menu icon
+const NAV_MIN_WIDTH = 650;
+
+class Navbar extends Component{
+  constructor(props){
+    super(props);
+
+    this.state = {
+      show_menu_modal: false,
+      draw_menu: window.innerWidth < NAV_MIN_WIDTH ? true : false,
+    }
+
+    //bind methods
+    this.update_window_dimensions = this.update_window_dimensions.bind(this);
+    this.handle_menu_modal_close = this.handle_menu_modal_close.bind(this);
+    this.handle_show_menu_modal = this.handle_show_menu_modal.bind(this);
+  }
+
+  componentDidMount(){
+    //ensure window resizing is captured
+    window.addEventListener('resize', this.update_window_dimensions);
+  }
+
+  update_window_dimensions(event){
+    // console.log('update_window_dimensions called...');
+    //update depending on state and window sizing
+    if(window.innerWidth >= NAV_MIN_WIDTH && this.state.draw_menu){
+      this.setState({draw_menu: false});
+    }else if(window.innerWidth < NAV_MIN_WIDTH && !this.state.draw_menu){
+      this.setState({draw_menu:true});
+    }
+  }
+
+  handle_menu_modal_close(){
+    console.log('handle_menu_modal_close called...')
+    this.setState({show_menu_modal:false});
+  }
+
+  handle_show_menu_modal(){
+    console.log('handle_show_menu_modal called...')
+    this.setState({show_menu_modal:true});
+  }
+
+  render(){
+    return this.state.draw_menu ? (
+      <div className="navbar">
+        <ul className="nav">
+          <li className="left" id="name"><p>Erika Jonell</p></li>
+          <li className="right" onClick={this.handle_show_menu_modal}>
+            <p className="menu"><i className="fa fa-bars" aria-hidden="true"></i></p>
+          </li>
+        </ul>
+        <ReactModal
+          className="menu-modal-content section"
+          overlayClassName="menu-modal-overlay"
+          isOpen={this.state.show_menu_modal}
+          onRequestClose={this.handle_menu_modal_close}>
+            <ul className="menu-list">
+              <a className="menu-list-item" href="#project-container" target="_self" onClick={this.handle_menu_modal_close}><li>Projects</li></a>
+              <a className="menu-list-item" href="#history-container" target="_self" onClick={this.handle_menu_modal_close}><li>History</li></a>
+              <a className="menu-list-item" href="#email"><li><i className="fa fa-envelope-o" aria-hidden="true"></i></li></a>
+              <a className="menu-list-item" href="https://github.com/xevrem"><li ><i className="fa fa-github" aria-hidden="true"></i></li></a>
+              <a className="menu-list-item" href="https://www.linkedin.com/in/erika-jonell"><li><i className="fa fa-linkedin" aria-hidden="true"></i></li></a>
+            </ul>
+          </ReactModal>
+      </div>
+    ) : (
+      <div className="navbar">
+        <ul className="nav">
+          <li className="left" id="name"><p>Erika Jonell</p></li>
+          <li className="left"><a href="#project-container" target="_self">Projects</a></li>
+          <li className="left"><a href="#history-container" target="_self">History</a></li>
+          <li className="right"><a href="#email"><i className="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+          <li className="right"><a href="https://github.com/xevrem"><i className="fa fa-github" aria-hidden="true"></i></a></li>
+          <li className="right"><a href="https://www.linkedin.com/in/erika-jonell"><i className="fa fa-linkedin" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+    );
+  }
 }
 
 
 const SKILLS = {
-  'Software Languages': 'C#, Java, JavaScript, Python, and SQL',
+  'Software Languages': 'C#, JavaScript, Python, and SQL',
   'Frameworks & Standards': 'Standards (e.g., CSS, HTML, JSON, ServiceWorkers, and XML/XSD), JS/Node (e.g., Axios, Express, NPM/Yarn, React, Vue), Python (e.g., Flask, Jupyter, Keras, Matplotlib, Numpy, Scikit-Learn, Tensorflow), and Styling (e.g., Bootstrap, Font Awesome)',
   'Databases': 'MongoDB, IndexedDB, and SQLite',
   'Development Tools': 'Atom, MonoDevelop, and Visual Studio',
-  'Lifecycle Management':'IBM Rational, Git, and GitHub',
+  'Lifecycle Management':'IBM Rational, Git/GitHub, and Slack',
   'Architecture': 'OpenText ProVision and DoD Architecture Framework (DoDAF)',
   'Virtualization': 'QEMU/KVM, VirtualBox, and VMware',
   'Graphics Engines/Frameworks': 'XNA/MonoGame, Unity, and Godot'
@@ -54,9 +120,7 @@ const About = (props) =>{
           <img src="./images/me.jpg" alt="" id="avatar"/>
         </div>
         <div className="about-text">
-          <span>
-            {skill_list}
-          </span>
+          {skill_list}
         </div>
       </div>
     </div>
@@ -65,10 +129,10 @@ const About = (props) =>{
 
 const Project = (props) =>{
   return (
-    <div className="grid-item">
-      <div className="grid-content">
+    <div className="project-item">
+      <div className="project-content">
         <a href={props.link} target="_blank">
-          <img className="grid-img" src={props.img} alt="a picture of the project"/>
+          <img className="project-img" src={props.img} alt="a picture of the project"/>
         </a>
         <h3>{props.name}</h3>
         <p>{props.text}</p>
@@ -90,29 +154,12 @@ const Projects = (props) => {
         <h2>Past Projects</h2>
       </div>
       <hr className="my-hr"/>
-      <div className="grid-container">
+      <div className="project-grid">
         {project_list}
       </div>
     </div>
   );
 }
-
-// const ContactInfo = (props) => {
-//   return (
-//     <div id="contact-container">
-//       <div className="header">
-//         <h2>Contact Methods</h2>
-//       </div>
-//       <hr className="my-hr"/>
-//       <div className="contact-block">
-//         <a href="#email"><i className="fa fa-envelope-o" aria-hidden="true"></i></a>
-//         <a href="https://github.com/xevrem"><i className="fa fa-github" aria-hidden="true"></i></a>
-//         <a href="#twitter"><i className="fa fa-twitter" aria-hidden="true"></i></a>
-//       </div>
-//     </div>
-//   );
-// }
-//
 
 const History = (props) => {
 
@@ -143,7 +190,7 @@ const History = (props) => {
 
 const Section = props => {
   return(
-    <div className='section' id={props.section_id}>
+    <div className='section'>
       {props.children}
     </div>
   );
@@ -155,13 +202,14 @@ class App extends Component {
     super();
     this.state = {
       projects: project_data,
-      history: history_data
+      history: history_data,
     }
   }
+
   render() {
     return (
       <div className="app">
-        <Navbar/>
+        <Navbar />
         <div className="content">
 
           <Section>
