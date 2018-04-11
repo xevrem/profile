@@ -155,7 +155,7 @@ hr.my-hr{
 }
 
 div.about-text {
-  text-align: justify;
+  text-align: left;
   font-size: 1.25em;
   height: 100%;
   line-height: 300px;
@@ -258,10 +258,11 @@ li.history-item p{
 
 .mail-modal-content{
   position: absolute;
-  width: 50%;
-  left: 25%;
+  width: 100%;
   top: 33%;
   text-align: center;
+  margin: 0px;
+  padding: 10px 0px;
 }
 
 .mail-modal-content h2{
@@ -287,6 +288,14 @@ li.history-item p{
 .project-grid {
   justify-content: center;
 }
+
+@media screen and (min-width: $small){
+  .mail-modal-content{
+    width: 400px;
+    left: calc((96% - 400px)/2);
+  }
+}
+
 
 @supports (display: grid) {
 

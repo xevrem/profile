@@ -99,7 +99,7 @@ hr.my-hr {
   background-image: linear-gradient(to right, rgba(38, 60, 89, 0), #263c59, rgba(38, 60, 89, 0)); }
 
 div.about-text {
-  text-align: justify;
+  text-align: left;
   font-size: 1.25em;
   height: 100%;
   line-height: 300px;
@@ -193,10 +193,11 @@ li.history-item p {
 
 .mail-modal-content {
   position: absolute;
-  width: 50%;
-  left: 25%;
+  width: 100%;
   top: 33%;
-  text-align: center; }
+  text-align: center;
+  margin: 0px;
+  padding: 10px 0px; }
 
 .mail-modal-content h2 {
   margin-top: 0px; }
@@ -224,6 +225,11 @@ li.history-item p {
 
 .project-grid {
   justify-content: center; }
+
+@media screen and (min-width: 576px) {
+  .mail-modal-content {
+    width: 400px;
+    left: calc((96% - 400px)/2); } }
 
 @supports (display: grid) {
   @media screen and (min-width: 768px) {
