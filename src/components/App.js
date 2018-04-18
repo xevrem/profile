@@ -31,7 +31,7 @@ import history_data from './../history.json';
 ReactModal.setAppElement('#root');
 
 //transition width between full nav and menu icon
-const NAV_MIN_WIDTH = 650;
+const NAV_MIN_WIDTH = 655;
 
 class Navbar extends Component{
   constructor(props){
