@@ -108,7 +108,7 @@ class Navbar extends Component{
           onRequestClose={this.handle_menu_modal_close}>
             <ul className="menu-list">
               <a className="menu-list-item" href="#project-container" target="_self" onClick={this.handle_menu_modal_close}><li>Projects</li></a>
-              <a className="menu-list-item" href="#history-container" target="_self" onClick={this.handle_menu_modal_close}><li>History</li></a>
+              {/* <a className="menu-list-item" href="#history-container" target="_self" onClick={this.handle_menu_modal_close}><li>History</li></a> */}
               <p className="menu-list-item" onClick={this.handle_show_mail_modal}>
                 <li ><i className="fa fa-envelope-o" aria-hidden="true"></i></li>
               </p>
@@ -130,7 +130,7 @@ class Navbar extends Component{
         <ul className="nav">
           <li className="left" id="name"><p>Erika Jonell</p></li>
           <li className="left"><a href="#project-container" target="_self">Projects</a></li>
-          <li className="left"><a href="#history-container" target="_self">History</a></li>
+          {/* <li className="left"><a href="#history-container" target="_self">History</a></li> */}
           <li className="right" onClick={this.handle_show_mail_modal}>
             <p className="menu"><i className="fa fa-envelope-o" aria-hidden="true"></i></p>
           </li>
@@ -284,9 +284,9 @@ class App extends Component {
             <Projects projects={this.state.projects}/>
           </Section>
 
-          <Section>
+          {/* <Section>
             <History history={this.state.history}/>
-          </Section>
+          </Section> */}
 
         </div>
       </div>
