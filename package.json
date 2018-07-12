@@ -4,14 +4,14 @@
   "private": true,
   "homepage": "https://xevrem.github.io/profile",
   "dependencies": {
+    "prop-types": "^15.6.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-modal": "^3.3.2",
-    "react-scripts": "1.1.0"
+    "react-modal": "^3.3.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "parcel ./public/index.html",
+    "build": "gulp build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "sass": "node-sass-chokidar src/ -o src/ --watch --recursive",
@@ -19,7 +19,13 @@
     "deploy": "gh-pages -d build"
   },
   "devDependencies": {
+    "cssnano": "^4.0.1",
+    "eslint": "^5.0.1",
+    "eslint-plugin-react": "^7.10.0",
     "gh-pages": "^1.1.0",
-    "node-sass-chokidar": "^1.2.2"
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-run": "^1.7.1",
+    "gulp-sass": "^4.0.1"
   }
 }

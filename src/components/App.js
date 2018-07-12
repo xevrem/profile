@@ -21,6 +21,7 @@ SOFTWARE.
  */
 import React, { Component } from 'react';
 import ReactModal from 'react-modal';
+// import PropTypes from 'prop-types';
 
 import './App.css';
 
@@ -41,7 +42,7 @@ class Navbar extends Component{
       show_menu_modal: false,
       draw_menu: window.innerWidth < NAV_MIN_WIDTH ? true : false,
       show_mail_modal: false,
-    }
+    };
 
     //bind methods
     this.update_window_dimensions = this.update_window_dimensions.bind(this);
@@ -69,7 +70,7 @@ class Navbar extends Component{
     this.setState({
       draw_menu: draw_menu,
       show_menu_modal: false //if user resizes always close modal
-    })
+    });
   }
 
   handle_menu_modal_close(){
@@ -106,23 +107,23 @@ class Navbar extends Component{
           overlayClassName="menu-modal-overlay"
           isOpen={this.state.show_menu_modal}
           onRequestClose={this.handle_menu_modal_close}>
-            <ul className="menu-list">
-              <a className="menu-list-item" href="#project-container" target="_self" onClick={this.handle_menu_modal_close}><li>Projects</li></a>
-              {/* <a className="menu-list-item" href="#history-container" target="_self" onClick={this.handle_menu_modal_close}><li>History</li></a> */}
-              <p className="menu-list-item" onClick={this.handle_show_mail_modal}>
-                <li ><i className="fa fa-envelope-o" aria-hidden="true"></i></li>
-              </p>
-              <a className="menu-list-item" href="https://github.com/xevrem"><li><i className="fa fa-github" aria-hidden="true"></i></li></a>
-              <a className="menu-list-item" href="https://www.linkedin.com/in/erika-jonell"><li><i className="fa fa-linkedin" aria-hidden="true"></i></li></a>
-            </ul>
+          <ul className="menu-list">
+            <a className="menu-list-item" href="#project-container" target="_self" onClick={this.handle_menu_modal_close}><li>Projects</li></a>
+            {/* <a className="menu-list-item" href="#history-container" target="_self" onClick={this.handle_menu_modal_close}><li>History</li></a> */}
+            <p className="menu-list-item" onClick={this.handle_show_mail_modal}>
+              <li ><i className="fa fa-envelope-o" aria-hidden="true"></i></li>
+            </p>
+            <a className="menu-list-item" href="https://github.com/xevrem"><li><i className="fa fa-github" aria-hidden="true"></i></li></a>
+            <a className="menu-list-item" href="https://www.linkedin.com/in/erika-jonell"><li><i className="fa fa-linkedin" aria-hidden="true"></i></li></a>
+          </ul>
         </ReactModal>
         <ReactModal
           className="mail-modal-content section"
           overlayClassName="mail-modal-overlay"
           isOpen={this.state.show_mail_modal}
           onRequestClose={this.handle_mail_modal_close}>
-            <h2>Email</h2>
-            <h3>erika DOT jonell AT gmail DOT com</h3>
+          <h2>Email</h2>
+          <h3>erika DOT jonell AT gmail DOT com</h3>
         </ReactModal>
       </div>
     ) : (
@@ -142,8 +143,8 @@ class Navbar extends Component{
           overlayClassName="mail-modal-overlay"
           isOpen={this.state.show_mail_modal}
           onRequestClose={this.handle_mail_modal_close}>
-            <h2>Email</h2>
-            <h3>erika DOT jonell AT gmail DOT com</h3>
+          <h2>Email</h2>
+          <h3>erika DOT jonell AT gmail DOT com</h3>
         </ReactModal>
       </div>
     );
@@ -160,7 +161,7 @@ const SKILLS = {
   'Architecture': 'OpenText ProVision and DoD Architecture Framework (DoDAF)',
   'Virtualization': 'QEMU/KVM, VirtualBox, and VMware',
   'Graphics Engines/Frameworks': 'XNA/MonoGame, Unity, and Godot'
-}
+};
 
 const About = (props) =>{
 
@@ -169,7 +170,7 @@ const About = (props) =>{
       <p key={i}>
         <u>{key}</u>: {SKILLS[key]}
       </p>
-    )
+    );
   });
 
   return (
@@ -189,7 +190,7 @@ const About = (props) =>{
       </div>
     </div>
   );
-}
+};
 
 const Project = (props) =>{
   return (
@@ -203,7 +204,7 @@ const Project = (props) =>{
       </div>
     </div>
   );
-}
+};
 
 
 const Projects = (props) => {
@@ -223,7 +224,7 @@ const Projects = (props) => {
       </div>
     </div>
   );
-}
+};
 
 const History = (props) => {
 
@@ -234,8 +235,8 @@ const History = (props) => {
         <h4><em>{item.entity} ( {item.dates} )</em></h4>
         <p>{item.description}</p>
       </li>
-    )
-  })
+    );
+  });
 
   return (
     <div id='history-container'>
@@ -249,8 +250,8 @@ const History = (props) => {
         </ul>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const Section = props => {
   return(
@@ -258,7 +259,12 @@ const Section = props => {
       {props.children}
     </div>
   );
-}
+};
+// Section.propTypes = {
+//   children: PropTypes.elements.isRequired
+// };
+
+
 
 
 class App extends Component {
@@ -267,7 +273,7 @@ class App extends Component {
     this.state = {
       projects: project_data,
       history: history_data,
-    }
+    };
   }
 
   render() {

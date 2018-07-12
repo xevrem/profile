@@ -1,5 +1,11 @@
 [
   {
+    "link":"https://github.com/xevrem/mws-final",
+    "img":"./images/lotro_sm.jpg",
+    "name":"Mobile Web Specialist (MWS) Final Project",
+    "text":"Final Project for MWS Nanodegree, a Restaurant Reviews Web Application"
+  },
+  {
     "link":"https://xevrem.github.io/lotro-cl",
     "img":"./images/lotro_sm.jpg",
     "name":"LoTRO Character Log",
