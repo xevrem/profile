@@ -3,12 +3,12 @@
     "link":"https://github.com/xevrem/mws-final",
     "img":"./images/mws_project.jpg",
     "name":"Mobile Web Specialist (MWS) Final Project",
-    "text":"Final Project for MWS Nanodegree, a Restaurant Reviews Web Application"
+    "text":"A Restaurant Reviews Web Application featuring responsive and offline first techniques"
   },
   {
     "link":"https://xevrem.github.io/lotro-cl",
     "img":"./images/lotro_sm.jpg",
-    "name":"LoTRO Character Log",
+    "name":"Lord of the Rings Online Character Log",
     "text":"The webapp for managing LoTRO characters, written in React"
   },
   {
@@ -57,7 +57,7 @@
     "link":"https://xev-twitch-api.glitch.me",
     "img":"./images/twitch_api_sm.jpg",
     "name":"Simple Twitch API",
-    "text":"Custom Twitch status service for Simple Twitch Check"
+    "text":"Custom Twitch status service used by Simple Twitch Check"
   },
   {
     "link":"https://xev-img-search.glitch.me/",
@@ -75,6 +75,6 @@
     "link":"https://github.com/xevrem/vaerydian",
     "img":"./images/vaerydian_sm.jpg",
     "name":"Vaerydian",
-    "text":"A simple action RPG written in C#"
+    "text":"A simple action RPG written in C# utilizing MonoGame"
   }
 ]
