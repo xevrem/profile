@@ -154,11 +154,11 @@ class Navbar extends Component{
 
 const SKILLS = {
   'Software Languages': 'C#, JavaScript, Python, and SQL',
-  'Web Technologies':'Standards (e.g., CSS, HTML, JSON, ServiceWorkers, XML/XSD), JS/Node (e.g., Axios, Express, NPM/Yarn, React, Vue) and Styling (e.g., Bootstrap, Font Awesome)',
-  'Other Languages': 'C# and Python (e.g., Flask, Jupyter, Keras, Matplotlib, Numpy, Scikit-Learn, Tensorflow)',
+  'Web Technologies': 'Standards (e.g., CSS, HTML, JSON, ServiceWorkers, XML/XSD), JS/Node (e.g., Axios, Express, NPM/Yarn, React, Vue) and Styling (e.g., Bootstrap, Font Awesome)',
+  'Other Frameworks': 'Python (e.g., Flask, Jupyter, Keras, Matplotlib, Numpy, Scikit-Learn, Tensorflow)',
   'Databases': 'MongoDB, IndexedDB, and SQLite',
   'Development Tools': 'Atom, Gulp, Parcel, MonoDevelop, and Visual Studio',
-  'Lifecycle Management':'IBM Rational, Git/GitHub, and Slack',
+  'Lifecycle Management': 'IBM Rational, Git/GitHub, and Slack',
   'Architecture': 'OpenText ProVision and DoD Architecture Framework (DoDAF)',
   'Virtualization': 'QEMU/KVM, VirtualBox, and VMware',
   'Graphics Engines/Frameworks': 'XNA/MonoGame, Unity, and Godot'
