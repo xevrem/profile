@@ -28,8 +28,7 @@ import './App.css';
 import project_data from './../projects.json';
 import history_data from './../history.json';
 
-//set AppElement for ReactModal
-ReactModal.setAppElement('#root');
+
 
 //transition width between full nav and menu icon
 const NAV_MIN_WIDTH = 655;
@@ -301,4 +300,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export {App, Section, History, Project, About, Navbar};

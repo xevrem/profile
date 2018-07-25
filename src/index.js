@@ -22,6 +22,11 @@ SOFTWARE.
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './components/App';
+import {App} from './components/App';
+import ReactModal from 'react-modal';
+
+
+//set AppElement for ReactModal
+ReactModal.setAppElement('#root');
 
 ReactDOM.render(<App />, document.getElementById('root'));

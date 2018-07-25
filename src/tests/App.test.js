@@ -21,10 +21,48 @@ SOFTWARE.
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './../components/App';
+import renderer from 'react-test-renderer';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+import Enzyme, { shallow, render, mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+import {App, Section, History, Project, About, Navbar} from './../components/App';
+import ReactModal from 'react-modal';
+
+Enzyme.configure({ adapter: new Adapter() });
+
+describe('App', () => {
+  //stub a div for react-modal to bind to
+  let div = document.createElement('div');
+  div.id = 'root';
+  document.body.append(div);
+
+  it('is able to run tests', () => {
+    expect(1+2).toEqual(3);
+  });
+
+  it('renders without crashing', () => {
+    const app = renderer.create(<App/>);
+    let tree = app.toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('can render a Section', () => {
+    const section = shallow(<Section>this is a test!</Section>);
+    expect(section.find('div').props().className).toEqual('section');
+  });
+
+  it('navbar has one initial modal', () => {
+    const navbar = shallow(<Navbar/>);
+    expect(navbar.find(ReactModal).length).toEqual(1);
+    expect(navbar.find(ReactModal).props().className).toEqual('mail-modal-content section');
+  });
+
+  it('navbar can have two modals', () => {
+    const navbar = shallow(<Navbar/>);
+    navbar.setState({
+      draw_menu: true
+    });
+    expect(navbar.find(ReactModal).length).toEqual(2);
+  });
 });
