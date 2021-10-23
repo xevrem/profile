@@ -23,7 +23,7 @@ import React, { Component } from 'react';
 import ReactModal from 'react-modal';
 // import PropTypes from 'prop-types';
 
-import './App.css';
+import './App.scss';
 
 import project_data from './../projects.json';
 import history_data from './../history.json';
@@ -152,15 +152,15 @@ class Navbar extends Component{
 
 
 const SKILLS = {
-  'Software Languages': 'C#, JavaScript, Python, and SQL',
+  'Software Languages': 'C#, Elixir, JavaScript, Python, Rust, SQL, TypeScript',
   'Web Technologies': 'Standards (e.g., CSS, HTML, JSON, ServiceWorkers, XML/XSD), JS/Node (e.g., Axios, Express, NPM/Yarn, React, Vue) and Styling (e.g., Bootstrap, Font Awesome)',
-  'Other Frameworks': 'Python (e.g., Flask, Jupyter, Keras, Matplotlib, Numpy, Scikit-Learn, Tensorflow)',
-  'Databases': 'MongoDB, IndexedDB, and SQLite',
-  'Development Tools': 'Atom, Gulp, Parcel, MonoDevelop, and Visual Studio',
-  'Lifecycle Management': 'IBM Rational, Git/GitHub, and Slack',
+  'Other Frameworks': 'Python (e.g., Flask, Jupyter, Keras, Matplotlib, NetworkX, Numpy, Scikit-Learn, Tensorflow)',
+  'Databases': 'MongoDB, IndexedDB, Postgres, and SQLite',
+  'Development Tools': 'Atom, Emacs, Gulp, Parcel, MonoDevelop, Vi, and Visual Studio',
+  'Lifecycle Management': 'IBM Rational, Git, GitHub, Gitlab, Mattermost, and Slack',
   'Architecture': 'OpenText ProVision and DoD Architecture Framework (DoDAF)',
-  'Virtualization': 'QEMU/KVM, VirtualBox, and VMware',
-  'Graphics Engines/Frameworks': 'XNA/MonoGame, Unity, and Godot'
+  'Virtualization': 'Docker, QEMU/KVM, Podman, VirtualBox, and VMware',
+  'Graphics Engines/Frameworks': 'Bevy, Godot, MonoGame, pixi.js, and Unity, '
 };
 
 const About = (props) =>{

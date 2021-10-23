@@ -83,6 +83,7 @@ yarn-error.log*
 
 #parcel cache
 /.cache
+/.parcel-cache
 
 # yarn berry ignores
 # yarn 2+ stuff

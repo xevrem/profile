@@ -1,44 +1,61 @@
 {
-    "env": {
-        "browser": true,
-        "es6": true,
-        "serviceworker": true,
-        "jest": true
+  "env": {
+    "browser": true,
+    "es6": true,
+    "serviceworker": true,
+    "jest": true
+  },
+  "parser": "@babel/eslint-parser",
+  "plugin": ["babel"],
+  "extends": [
+    "eslint:recommended"
+  ],
+  "parserOptions": {
+    "requireConfigFile": false,
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": true
     },
-    "extends": ["eslint:recommended", "plugin:react/recommended"],
-    "parserOptions": {
-        "ecmaFeatures": {
-            "experimentalObjectRestSpread": true,
-            "jsx": true,
-            "ecmaFeatures": {
-              "jsx": true
-            }
-        },
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react"
+    "sourceType": "module"
+  },
+  "rules": {
+    "@babel/new-cap": "error",
+    "@babel/no-invalid-this": "error",
+    "@babel/no-unused-expressions": "error",
+    "@babel/object-curly-spacing": "error",
+    "@babel/semi": "error",
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1
+      }
     ],
-    "rules": {
-        "indent": [
-            "error",
-            2
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "quotes": [
-            "warn",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ],
-        "no-console":[
+    "quotes": [
+      "warn",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "no-console": [
+      "warn",
+      {
+        "allow": [
           "warn",
-          { "allow": ["warn", "error"] }
+          "error",
+          "info"
         ]
-    }
+      }
+    ],
+    "no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "args": "after-used",
+        "ignoreRestSiblings": false
+      }
+    ]
+  }
 }
