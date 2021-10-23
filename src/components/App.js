@@ -290,9 +290,9 @@ class App extends Component {
             <Projects projects={this.state.projects}/>
           </Section>
 
-          {/* <Section>
+          <Section>
             <History history={this.state.history}/>
-          </Section> */}
+          </Section> 
 
         </div>
       </div>
