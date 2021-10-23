@@ -39,5 +39,6 @@
     "moduleNameMapper": {
       "\\.(css|less|sass|scss)$": "<rootDir>/__mocks__/style_mock.js"
     }
-  }
+  },
+  "packageManager": "yarn@3.0.2"
 }
