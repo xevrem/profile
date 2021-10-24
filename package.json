@@ -11,11 +11,11 @@
   },
   "scripts": {
     "start": "yarn gulp setup && yarn parcel ./src/index.html",
-    "build": "yarn gulp setup && yarn parcel build src/index.html --public-url /profile --dist-dir ./dist/profile",
+    "build": "yarn gulp setup && yarn parcel build src/index.html --public-url /profile",
     "test": "jest",
     "setup": "yarn gulp setup",
     "predeploy": "yarn setup",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.15.8",
