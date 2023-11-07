@@ -1,5 +1,11 @@
 [
   {
+    "link":"https://tenet3.com/solutions.html#metra",
+    "img": "./images/metra.png",
+    "name": "MeTRA",
+    "text": "A Model Based System Engineering platform for analyzing complex cyber-physical systems"
+  },
+  {
     "link":"https://github.com/xevrem/mws-final",
     "img":"./images/mws_project.jpg",
     "name":"Mobile Web Specialist (MWS) Final Project",

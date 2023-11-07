@@ -19,14 +19,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import {App} from './components/App';
-import ReactModal from 'react-modal';
-
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import { App } from "./components/App";
+import ReactModal from "react-modal";
 
 //set AppElement for ReactModal
-ReactModal.setAppElement('#root');
+ReactModal.setAppElement("#root");
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById("root"));
