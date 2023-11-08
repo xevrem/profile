@@ -19,17 +19,27 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
-import React, { Component } from "react";
+import { Component } from "react";
 import ReactModal from "react-modal";
-// import PropTypes from 'prop-types';
-
+import PropTypes from "prop-types";
 import "./App.scss";
-
+// load data
 import project_data from "./../projects.json";
 import history_data from "./../history.json";
+import skill_data from "./../skills.json";
+
+// setup the modal root
+ReactModal.setAppElement(document.getElementById("modal"));
 
 //transition width between full nav and menu icon
 const NAV_MIN_WIDTH = 655;
+
+const scroll_to_id = (id) => () => {
+  window.scrollTo({
+    top: document.getElementById(id).offsetTop - 85,
+    behavior: "smooth",
+  });
+};
 
 class Navbar extends Component {
   constructor(props) {
@@ -54,7 +64,7 @@ class Navbar extends Component {
     window.addEventListener("resize", this.update_window_dimensions);
   }
 
-  update_window_dimensions(event) {
+  update_window_dimensions(_event) {
     // console.log('update_window_dimensions called...');
     let draw_menu = this.state.draw_menu;
     //update depending on state and window sizing
@@ -71,23 +81,24 @@ class Navbar extends Component {
   }
 
   handle_menu_modal_close() {
-    // console.log('handle_menu_modal_close called...')
     this.setState({ show_menu_modal: false });
   }
 
   handle_show_menu_modal() {
-    // console.log('handle_show_menu_modal called...')
     this.setState({ show_menu_modal: true });
   }
 
   handle_show_mail_modal() {
-    // console.log('handle_show_mail_modal called...')
     this.setState({ show_mail_modal: true });
   }
 
   handle_mail_modal_close() {
-    // console.log('handle_mail_modal_close called...')
     this.setState({ show_mail_modal: false });
+  }
+
+  scroll_and_close = (id) => () => {
+    this.handle_menu_modal_close();
+    scroll_to_id(id)();
   }
 
   render() {
@@ -110,15 +121,24 @@ class Navbar extends Component {
           onRequestClose={this.handle_menu_modal_close}
         >
           <ul className="menu-list">
-            <a
+            <p
               className="menu-list-item"
-              href="#project-container"
-              target="_self"
-              onClick={this.handle_menu_modal_close}
+              onClick={this.scroll_and_close('about-container')}
+            >
+              <li>About</li>
+            </p>
+            <p
+              className="menu-list-item"
+              onClick={this.scroll_and_close('project-container')}
             >
               <li>Projects</li>
-            </a>
-            {/* <a className="menu-list-item" href="#history-container" target="_self" onClick={this.handle_menu_modal_close}><li>History</li></a> */}
+            </p>
+            <p
+              className="menu-list-item"
+              onClick={this.scroll_and_close('history-container')}
+            >
+              <li>History</li>
+            </p>
             <p className="menu-list-item" onClick={this.handle_show_mail_modal}>
               <li>
                 <i className="fa fa-envelope-o" aria-hidden="true"></i>
@@ -153,14 +173,14 @@ class Navbar extends Component {
       <div className="navbar">
         <ul className="nav">
           <li className="left" id="name">
-            <p>Erika Jonell</p>
+            <p onClick={scroll_to_id("about-container")}>Erika Jonell</p>
           </li>
           <li className="left">
-            <a href="#project-container" target="_self">
-              Projects
-            </a>
+            <p onClick={scroll_to_id("project-container")}>Projects</p>
           </li>
-          {/* <li className="left"><a href="#history-container" target="_self">History</a></li> */}
+          <li className="left">
+            <p onClick={scroll_to_id("history-container")}>History</p>
+          </li>
           <li className="right" onClick={this.handle_show_mail_modal}>
             <p className="menu">
               <i className="fa fa-envelope-o" aria-hidden="true"></i>
@@ -191,27 +211,11 @@ class Navbar extends Component {
   }
 }
 
-const SKILLS = {
-  "Software Languages": "C#, Elixir, JavaScript, Python, Rust, SQL, TypeScript",
-  "Web Technologies":
-    "Standards (e.g., CSS, HTML, JSON, ServiceWorkers, XML/XSD), JS/Node (e.g., Axios, Express, NPM/Yarn, React, Vue) and Styling (e.g., Bootstrap, Font Awesome)",
-  "Other Frameworks":
-    "Python (e.g., Flask, Jupyter, Keras, Matplotlib, NetworkX, Numpy, Scikit-Learn, Tensorflow)",
-  Databases: "MongoDB, IndexedDB, Postgres, and SQLite",
-  "Development Tools":
-    "Atom, Emacs, Gulp, Parcel, MonoDevelop, Vi, and Visual Studio",
-  "Lifecycle Management":
-    "IBM Rational, Git, GitHub, Gitlab, Mattermost, and Slack",
-  Architecture: "OpenText ProVision and DoD Architecture Framework (DoDAF)",
-  Virtualization: "Docker, QEMU/KVM, Podman, VirtualBox, and VMware",
-  "Graphics Engines/Frameworks": "Bevy, Godot, MonoGame, pixi.js, and Unity, ",
-};
-
-const About = (_props) => {
-  let skill_list = Object.keys(SKILLS).map((key, i) => {
+function About({ skills }) {
+  let skill_list = Object.entries(skills).map(([key, value], i) => {
     return (
       <p key={i}>
-        <u>{key}</u>: {SKILLS[key]}
+        <u>{key}</u>: {value}
       </p>
     );
   });
@@ -231,6 +235,10 @@ const About = (_props) => {
       </div>
     </div>
   );
+}
+
+About.propTypes = {
+  skills: PropTypes.object.isRequired,
 };
 
 const Project = (props) => {
@@ -275,7 +283,7 @@ const Projects = (props) => {
   );
 };
 
-const History = (props) => {
+function History(props) {
   let history_list = props.history.map((item, i) => {
     return (
       <li key={i} className="history-item">
@@ -303,44 +311,33 @@ const History = (props) => {
       </div>
     </div>
   );
+}
+
+History.propTypes = {
+  history: PropTypes.array.isRequired,
 };
 
-const Section = (props) => {
-  return <div className="section">{props.children}</div>;
-};
-// Section.propTypes = {
-//   children: PropTypes.elements.isRequired
-// };
+function Section({ children }) {
+  return <div className="section">{children}</div>;
+}
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      projects: project_data,
-      history: history_data,
-    };
-  }
-
-  render() {
-    return (
-      <div className="app">
-        <Navbar />
-        <div className="content">
-          <Section>
-            <About />
-          </Section>
-
-          <Section>
-            <Projects projects={this.state.projects} />
-          </Section>
-
-          <Section>
-            <History history={this.state.history} />
-          </Section>
-        </div>
+function App() {
+  return (
+    <div className="app">
+      <Navbar />
+      <div className="content">
+        <Section>
+          <About skills={skill_data} />
+        </Section>
+        <Section>
+          <Projects projects={project_data} />
+        </Section>
+        <Section>
+          <History history={history_data} />
+        </Section>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export { App, Section, History, Project, About, Navbar };

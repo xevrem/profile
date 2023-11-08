@@ -1,0 +1,15 @@
+{
+  "Software Languages": "C#, Elixir, JavaScript, Python, Rust, SQL, TypeScript",
+  "Web Technologies":
+    "Standards (e.g., CSS, HTML, JSON, ServiceWorkers, XML/XSD), JS/Node (e.g., Axios, Express, NPM/Yarn, React, Vue) and Styling (e.g., Bootstrap, Font Awesome)",
+  "Other Frameworks":
+    "Python (e.g., Flask, Jupyter, Keras, Matplotlib, NetworkX, Numpy, Scikit-Learn, Tensorflow)",
+  "Databases": "MongoDB, IndexedDB, Postgres, and SQLite",
+  "Development Tools":
+    "Atom, Emacs, Gulp, Parcel, MonoDevelop, Vi, and Visual Studio",
+  "Lifecycle Management":
+    "IBM Rational, Git, GitHub, Gitlab, Mattermost, and Slack",
+  "Architecture": "OpenText ProVision and DoD Architecture Framework (DoDAF)",
+  "Virtualization": "Docker, QEMU/KVM, Podman, VirtualBox, and VMware",
+  "Graphics Engines/Frameworks": "Bevy, Godot, MonoGame, pixi.js, and Unity, "
+}

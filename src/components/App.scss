@@ -54,6 +54,7 @@ div.navbar{
   top: 0px;
   left: 0px;
   box-shadow: 0 0 4px $shadow1,0 4px 8px $shadow2;
+  position: sticky;
 }
 
 ul.nav{
@@ -73,7 +74,7 @@ ul.nav li.right{
   border-left: 2px solid $textdark;
 }
 
-ul.nav li a{
+ul.nav li a {
   padding: 15px;
   font-family: 'Cuprum', sans-serif;
   font-size: 30px;
@@ -85,7 +86,7 @@ ul.nav li a{
 
 ul.nav li p{
   padding: 15px;
-  // font-family: 'Cuprum', sans-serif;
+  font-family: 'Cuprum', sans-serif;
   font-size: 30px;
   font-weight: bold;
   color: $textdark;
@@ -95,6 +96,11 @@ ul.nav li p{
 }
 
 ul.nav li a:hover{
+  background-color: $textdark;
+  color: $white
+}
+
+ul.nav li p:hover{
   background-color: $textdark;
   color: $white
 }

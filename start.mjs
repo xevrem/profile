@@ -4,14 +4,16 @@ import { inlineSass } from "esbuild-inline-sass";
 let ctx = await esbuild.context({
   bundle: true,
   entryPoints: ["./src/index.jsx"],
-  logLevel: "verbose",
-  minify: true,
+  logLevel: "debug",
+  minify: false,
   outdir: "./public",
   plugins: [inlineSass()],
   sourcemap: true,
   target: ["es2015"],
 });
 
-ctx.serve({
+await ctx.watch({});
+
+let { host: _host, port: _port } = await ctx.serve({
   servedir: "./public",
 });
