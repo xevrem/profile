@@ -12,7 +12,7 @@
   "scripts": {
     "start": "node start.mjs",
     "deploy": "gh-pages -d dist",
-    "build": "yarn esbuild ./src/index.jsx --bundle --outfile=./public/index.js --loader:.scss=css",
+    "build": "esbuild ./src/index.jsx --bundle --minify --outfile=./public/index.js --loader:.scss=css",
     "test": "jest"
   },
   "devDependencies": {
