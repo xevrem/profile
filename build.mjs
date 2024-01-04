@@ -8,5 +8,5 @@ await esbuild.build({
   outdir: "./public",
   plugins: [inlineSass()],
   sourcemap: false,
-  target: ["es2015"],
+  target: ['chrome100', 'firefox100'],
 });
