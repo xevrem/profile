@@ -20,7 +20,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 import { createRoot } from "react-dom/client";
-import "./index.scss";
 import { App } from "components/App";
 
 const root = createRoot(document.getElementById("root"));
