@@ -1,5 +1,5 @@
 /*
-Copyright 2018 Erika Jonell
+Copyright 2018-2024 Erika Jonell
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -23,6 +23,7 @@ import { Component } from "react";
 import ReactModal from "react-modal";
 import PropTypes from "prop-types";
 import "./App.scss";
+
 // load data
 import project_data from "./../projects.json";
 import history_data from "./../history.json";
@@ -99,7 +100,7 @@ class Navbar extends Component {
   scroll_and_close = (id) => () => {
     this.handle_menu_modal_close();
     scroll_to_id(id)();
-  }
+  };
 
   render() {
     return this.state.draw_menu ? (
@@ -123,19 +124,19 @@ class Navbar extends Component {
           <ul className="menu-list">
             <p
               className="menu-list-item"
-              onClick={this.scroll_and_close('about-container')}
+              onClick={this.scroll_and_close("about-container")}
             >
               <li>About</li>
             </p>
             <p
               className="menu-list-item"
-              onClick={this.scroll_and_close('project-container')}
+              onClick={this.scroll_and_close("project-container")}
             >
               <li>Projects</li>
             </p>
             <p
               className="menu-list-item"
-              onClick={this.scroll_and_close('history-container')}
+              onClick={this.scroll_and_close("history-container")}
             >
               <li>History</li>
             </p>
