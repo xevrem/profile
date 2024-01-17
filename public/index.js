@@ -6,7 +6,6 @@
   var __getOwnPropNames = Object.getOwnPropertyNames;
   var __getProtoOf = Object.getPrototypeOf;
   var __hasOwnProp = Object.prototype.hasOwnProperty;
-  var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
   var __commonJS = (cb, mod) => function __require() {
     return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
   };
@@ -26,10 +25,6 @@
     isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
     mod
   ));
-  var __publicField = (obj, key, value) => {
-    __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
-    return value;
-  };
 
   // node_modules/react/cjs/react.development.js
   var require_react_development = __commonJS({
@@ -2388,9 +2383,9 @@
           if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
             __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
           }
-          var React2 = require_react();
+          var React = require_react();
           var Scheduler = require_scheduler();
-          var ReactSharedInternals = React2.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           var suppressWarning = false;
           function setSuppressWarning(newSuppressWarning) {
             {
@@ -3995,7 +3990,7 @@
             {
               if (props.value == null) {
                 if (typeof props.children === "object" && props.children !== null) {
-                  React2.Children.forEach(props.children, function(child) {
+                  React.Children.forEach(props.children, function(child) {
                     if (child == null) {
                       return;
                     }
@@ -12442,7 +12437,7 @@
             }
           }
           var fakeInternalInstance = {};
-          var emptyRefsObject = new React2.Component().refs;
+          var emptyRefsObject = new React.Component().refs;
           var didWarnAboutStateAssignmentForComponent;
           var didWarnAboutUninitializedState;
           var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -25791,7 +25786,7 @@
       if (true) {
         (function() {
           "use strict";
-          var React2 = require_react();
+          var React = require_react();
           var REACT_ELEMENT_TYPE = Symbol.for("react.element");
           var REACT_PORTAL_TYPE = Symbol.for("react.portal");
           var REACT_FRAGMENT_TYPE = Symbol.for("react.fragment");
@@ -25817,7 +25812,7 @@
             }
             return null;
           }
-          var ReactSharedInternals = React2.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           function error(format) {
             {
               {
@@ -26675,26 +26670,12 @@
   });
 
   // src/index.jsx
-  var import_react2 = __toESM(require_react());
   var import_client = __toESM(require_client());
 
   // src/components/App.jsx
   var import_react = __toESM(require_react());
   var import_react_modal = __toESM(require_lib());
   var import_prop_types = __toESM(require_prop_types());
-
-  // style-helper:index.js
-  function inject_style(text) {
-    if (typeof document !== "undefined") {
-      var style = document.createElement("style");
-      var node = document.createTextNode(text);
-      style.appendChild(node);
-      document.head.appendChild(style);
-    }
-  }
-
-  // src/components/App.scss
-  inject_style('body{background:hsl(214,40%,60%);color:#0b3751;font-family:Cuprum,sans-serif}.app{margin:2%}div.navbar{background-color:#f2f2f2;width:100%;display:inline-block;padding:0;margin-bottom:5px 0 5px 0;top:0;left:0;box-shadow:0 0 4px #00000024,0 4px 8px #00000047;position:sticky}ul.nav{list-style-type:none;width:100%;padding:0;margin:0}ul.nav li.left{float:left;border-right:2px solid hsl(202,76%,18%)}ul.nav li.right{float:right;border-left:2px solid hsl(202,76%,18%)}ul.nav li a{padding:15px;font-family:Cuprum,sans-serif;font-size:30px;font-weight:700;color:#0b3751;display:inline-block;text-decoration:none}ul.nav li p{padding:15px;font-family:Cuprum,sans-serif;font-size:30px;font-weight:700;color:#0b3751;display:inline-block;text-decoration:none;margin:0}ul.nav li a:hover,ul.nav li p:hover{background-color:#0b3751;color:#f2f2f2}p.menu:hover{background-color:#0b3751;color:#f2f2f2;cursor:pointer}.menu-list{list-style-type:none;width:100%;padding:0;margin:0}.menu-list-item{margin:0;padding:0;color:#0b3751;text-decoration:none;cursor:pointer}.menu-list-item li{font-size:30px;font-weight:700;width:100%;margin:0;padding:8px 16px}.menu-list-item li:hover{background-color:#0b3751;color:#f2f2f2}div.header h2{text-align:center;font-size:2em;margin:0 0 5px;z-index:2}.self-title{text-align:center;font-size:1.25em;margin:0}hr.my-hr{border:0;margin:15px 0;height:5px;background-image:linear-gradient(to right,hsla(215,40%,25%,0),hsla(215,40%,25%,.5),hsla(215,40%,25%,0))}div.about-text{text-align:left;font-size:1.25em;height:100%;line-height:300px;grid-area:skills}div.about-text{display:inline-block;vertical-align:middle;line-height:1.25em;background-color:#8f3d4b;color:#e9f0db;padding:0 1.25em;box-shadow:0 0 4px #2e486bbf,0 2px 5px #2e486b47,0 4px 10px #2e486b7a}div.about-img{margin:auto;grid-area:avatar}#avatar{display:block;border-radius:50%;max-width:250px;max-height:250px;box-shadow:0 0 4px #2e486bbf,0 2px 5px #2e486b47,0 4px 10px #2e486b7a;margin:15px auto}.section{background-color:#f2f2f2;margin:15px 0;padding:15px;box-shadow:0 0 4px #00000024,0 4px 8px #00000047}.project-item{background-color:#8f3d4b;box-shadow:0 0 4px #2e486bbf,0 2px 5px #2e486b47,0 4px 10px #2e486b7a}.project-content{margin-bottom:15px;color:#e9f0db;padding:10px}.project-content p{margin-bottom:0}.project-img{width:100%}ul.history-list{list-style-type:none;padding:0;margin:0}li.history-item{background-color:#8f3d4b;color:#e9f0db;padding:10px;margin:10px 0;box-shadow:0 0 4px #2e486bbf,0 2px 5px #2e486b47,0 4px 10px #2e486b7a}li.history-item h3{margin:0 0 5px}li.history-item h4{margin:5px 0}li.history-item p{margin:10px 0 0}.menu-modal-content{padding:8px 0;margin:0;background-color:#f2f2f2}.menu-modal-overlay{position:fixed;z-index:1;left:0;top:0;width:100%;height:100%;overflow:auto;background-color:#000;background-color:#0006}.mail-modal-content{position:absolute;width:100%;top:33%;text-align:center;margin:0;padding:10px 0}.mail-modal-content h2{margin-top:0}.mail-modal-content h3{margin-bottom:0}.mail-modal-overlay{position:fixed;z-index:1;left:0;top:0;width:100%;height:100%;overflow:auto;background-color:#000;background-color:#0006}.project-grid{justify-content:center}@media screen and (min-width: 576px){.mail-modal-content{width:400px;left:calc((96% - 400px)/2)}}@supports (display: grid){@media screen and (min-width: 768px){.about-grid{display:grid;grid-template-columns:1fr 2fr;grid-gap:5px;justify-content:center;padding:5px;grid-template-areas:"avatar skills skills"}.project-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));grid-gap:15px}.project-content{margin-bottom:0}}@media screen and (min-width: 1024px){.about-grid{display:grid;grid-template-columns:1fr 3fr;grid-gap:30px;justify-content:center;padding:5px;grid-template-areas:"avatar skills skills skills"}.project-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));grid-gap:30px}}}');
 
   // src/projects.json
   var projects_default = [
@@ -26850,10 +26831,6 @@
   var Navbar = class extends import_react.Component {
     constructor(props) {
       super(props);
-      __publicField(this, "scroll_and_close", (id) => () => {
-        this.handle_menu_modal_close();
-        scroll_to_id(id)();
-      });
       this.state = {
         show_menu_modal: false,
         draw_menu: window.innerWidth < NAV_MIN_WIDTH ? true : false,
@@ -26893,6 +26870,10 @@
     handle_mail_modal_close() {
       this.setState({ show_mail_modal: false });
     }
+    scroll_and_close = (id) => () => {
+      this.handle_menu_modal_close();
+      scroll_to_id(id)();
+    };
     render() {
       return this.state.draw_menu ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "navbar", children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("ul", { className: "nav", children: [
@@ -27175,4 +27156,3 @@ react/cjs/react-jsx-runtime.development.js:
    * LICENSE file in the root directory of this source tree.
    *)
 */
-//# sourceMappingURL=index.js.map
