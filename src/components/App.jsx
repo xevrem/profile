@@ -246,15 +246,15 @@ const Project = (props) => {
   return (
     <div className="project-item">
       <div className="project-content">
-        <a href={props.link} target="_blank">
+        <a className="project-link" href={props.link} target="_blank">
           <img
             className="project-img"
             src={props.img}
             alt="a picture of the project"
           />
         </a>
-        <h3>{props.name}</h3>
-        <p>{props.text}</p>
+        <h3 className="project-name">{props.name}</h3>
+        <p className="project-text">{props.text}</p>
       </div>
     </div>
   );

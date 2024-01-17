@@ -13,7 +13,6 @@
     "start": "node start.mjs",
     "deploy": "gh-pages -d public",
     "build": "node build.mjs",
-    "build:old": "yarn esbuild ./src/index.jsx --bundle --outfile=./public/index.js --loader:.scss=css",
     "test": "jest"
   },
   "devDependencies": {
