@@ -14,7 +14,7 @@
     "setup:html": "cp ./src/index.html ./public/.",
     "setup": "pnpm run setup:html;pnpm run setup:img",
     "start": "pnpm run setup;node start.mjs",
-    "deploy": "gh-pages -d public",
+    "deploy": "pnpm run build;gh-pages -d public",
     "build": "pnpm run setup;node build.mjs",
     "test": "jest"
   },
