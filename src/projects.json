@@ -1,15 +1,33 @@
 [
   {
-    "link": "https://www.npmjs.com/package/onsreo",
-    "img": "./images/onsreo.jpeg",
-    "name": "onsreo",
-    "text": "A JavaScript/TypeScript library implementing Rust's Option & Result"
+    "link": "https://www.npmjs.com/package/behavey",
+    "img": "./images/behavey.jpeg",
+    "name": "behavey",
+    "text": "A Behavior Tree library for JavaScript/TypeScript"
   },
   {
     "link": "https://www.npmjs.com/package/ecsf",
     "img": "./images/ecsf.jpeg",
     "name": "ECSF",
     "text": "An Entity-Component-System framework for JavaScript/TypeScript"
+  },
+  {
+    "link": "https://www.npmjs.com/package/onsreo",
+    "img": "./images/onsreo.jpeg",
+    "name": "onsreo",
+    "text": "A JavaScript/TypeScript library implementing Rust's Option & Result"
+  },
+  {
+    "link": "https://www.npmjs.com/package/fqtree",
+    "img": "./images/fqtree.jpeg",
+    "name": "fqtree",
+    "text": "A Flexible Quadtree Library for JavaScript/TypeScript"
+  },
+  {
+    "link": "https://www.npmjs.com/package/evjkit",
+    "img": "./images/evjkit.jpeg",
+    "name": "evjkit",
+    "text": "A JavaScript/TypeScript library containing various utilities"
   },
   {
     "link": "https://tenet3.com/solutions.html#metra",
