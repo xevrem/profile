@@ -38,9 +38,9 @@
             rustPkgs
           ];
 
-          shellHook = ''
-              echo "<nix development shell>"
-            '';
+          # shellHook = ''
+          #     echo "<nix development shell>"
+          #   '';
         };
     };
 }

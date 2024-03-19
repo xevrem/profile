@@ -8,7 +8,7 @@
   {
     "link": "https://www.npmjs.com/package/ecsf",
     "img": "./images/ecsf.jpeg",
-    "name": "ECSF",
+    "name": "ecsf",
     "text": "An Entity-Component-System framework for JavaScript/TypeScript"
   },
   {
