@@ -1,12 +1,12 @@
 {
-  "Software Languages": "C#, Elixir, JavaScript, Python, Rust, SQL, TypeScript",
+  "Software Languages": "C#, Elixir, JavaScript / Typescript, Python, Rust, and SQL",
   "Web Technologies":
-    "Standards (e.g., CSS, HTML, JSON, ServiceWorkers, XML/XSD), JS/Node (e.g., Axios, Express, NPM/Yarn, React, Vue) and Styling (e.g., Bootstrap, Font Awesome)",
+    "Standards (e.g., CSS, HTML, JSON, Workers, XML/XSD), JS/Node (e.g., Axios, Express, NPM/PNPM/Yarn, React, Vue) and Styling (e.g., Bootstrap, Font Awesome, SASS)",
   "Other Frameworks":
-    "Python (e.g., Flask, Jupyter, Keras, Matplotlib, NetworkX, Numpy, Scikit-Learn, Tensorflow)",
+    "Python (e.g., Django, Flask, Jupyter, Keras, Matplotlib, NetworkX, Numpy, Scikit-Learn, Tensorflow)",
   "Databases": "MongoDB, IndexedDB, Postgres, and SQLite",
   "Development Tools":
-    "Atom, Emacs, Gulp, Parcel, MonoDevelop, Vi, and Visual Studio",
+    "Bash, Emacs, esbuild, Fish, Gulp.js, Parcel, MonoDevelop, Nix/NixOS, Nushell, Vi, Visual Studio, and Zsh",
   "Lifecycle Management":
     "IBM Rational, Git, GitHub, Gitlab, Mattermost, and Slack",
   "Architecture": "OpenText ProVision and DoD Architecture Framework (DoDAF)",
